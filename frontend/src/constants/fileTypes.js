@@ -1,9 +1,19 @@
 export const ALLOWED_FILE_TYPES = {
-    image: ['.jpg', '.jpeg', '.png', '.gif', '.webp'],
-    video: ['.mp4', '.avi', '.mov', '.mkv', '.webm'],
-    audio: ['.mp3', '.wav', '.ogg', '.m4a'],
-    document: ['.pdf', '.doc', '.docx', '.txt', '.xlsx', '.ppt', '.pptx'],
-    archive: ['.zip'],
+    image: ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.svg', '.tiff', '.tif', '.ico', '.heic', '.heif'],
+    video: ['.mp4', '.avi', '.mov', '.mkv', '.webm', '.flv', '.wmv', '.3gp', '.m4v'],
+    audio: ['.mp3', '.wav', '.ogg', '.m4a', '.flac', '.aac', '.wma', '.aiff'],
+    document: [
+        // Word / text
+        '.pdf', '.doc', '.docx', '.docm', '.dot', '.dotx', '.dotm',
+        '.txt', '.rtf', '.odt', '.ott', '.md', '.csv', '.xml', '.json',
+        // Excel / spreadsheets
+        '.xls', '.xlsx', '.xlsm', '.xlsb', '.xlt', '.xltx', '.xltm', '.ods', '.ots',
+        // PowerPoint / presentations
+        '.ppt', '.pptx', '.pptm', '.ppsx', '.ppsm', '.pps', '.pot', '.potx', '.potm', '.odp', '.otp', '.key',
+        // Other
+        '.epub', '.pages', '.numbers',
+    ],
+    archive: ['.zip', '.rar', '.7z', '.tar', '.gz', '.bz2'],
 };
 
 export const ALL_ALLOWED_EXTENSIONS = Object.values(ALLOWED_FILE_TYPES).flat();
