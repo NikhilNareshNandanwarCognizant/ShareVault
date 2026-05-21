@@ -1,24 +1,23 @@
 import type { MetadataRoute } from 'next';
-
-const SITE_URL = 'https://sharevault.vercel.app';
+import { absoluteUrl } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const lastModified = new Date();
     return [
         {
-            url: `${SITE_URL}/`,
+            url: absoluteUrl('/'),
             lastModified,
             changeFrequency: 'weekly',
             priority: 1.0,
         },
         {
-            url: `${SITE_URL}/file-upload`,
+            url: absoluteUrl('/file-upload'),
             lastModified,
             changeFrequency: 'weekly',
             priority: 0.9,
         },
         {
-            url: `${SITE_URL}/retrieve`,
+            url: absoluteUrl('/retrieve'),
             lastModified,
             changeFrequency: 'weekly',
             priority: 0.9,
