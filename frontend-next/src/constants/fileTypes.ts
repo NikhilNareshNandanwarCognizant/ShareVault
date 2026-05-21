@@ -33,7 +33,9 @@ export const ALL_ALLOWED_EXTENSIONS = Object.values(ALLOWED_FILE_TYPES).flat();
 export const ACCEPT_ATTRIBUTE = ALL_ALLOWED_EXTENSIONS.join(',');
 
 export function getFileExtension(file: File): string {
-    return '.' + file.name.split('.').pop()!.toLowerCase();
+    const lastDot = file.name.lastIndexOf('.');
+    if (lastDot < 0 || lastDot === file.name.length - 1) return '';
+    return file.name.slice(lastDot).toLowerCase();
 }
 
 export function getFileCategory(file: File): FileCategory {

@@ -94,9 +94,17 @@ export async function downloadFile(
             }
         }
 
+        // RFC 6266 filenames are percent-encoded; fall back to the raw name if decoding fails.
+        let safeName = downloadName;
+        try {
+            safeName = decodeURIComponent(downloadName);
+        } catch {
+            safeName = downloadName;
+        }
+
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', decodeURIComponent(downloadName));
+        link.setAttribute('download', safeName);
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

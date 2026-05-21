@@ -1,16 +1,19 @@
 import type { Metadata } from 'next';
 import FileUploadSection from '@/components/features/file-upload/FileUploadSection';
+import { absoluteUrl, BRAND_NAME } from '@/lib/site';
+
+const TITLE = 'Share Files with a 4-digit Code';
+const DESCRIPTION =
+    'Upload images, documents, audio, video or archives and share them with anyone using a single 4-digit code. Free, fast, no signup.';
 
 export const metadata: Metadata = {
-    title: 'Share Files with a 4-digit Code',
-    description:
-        'Upload images, documents, audio, video or archives and share them with anyone using a single 4-digit code. Free, fast, no signup.',
-    alternates: { canonical: 'https://sharevault.vercel.app/file-upload' },
+    title: { absolute: `${TITLE} | ${BRAND_NAME}` },
+    description: DESCRIPTION,
+    alternates: { canonical: absoluteUrl('/file-upload') },
     openGraph: {
-        url: 'https://sharevault.vercel.app/file-upload',
-        title: 'Share Files with a 4-digit Code | ShareVault',
-        description:
-            'Upload images, documents, audio, video or archives and share them with anyone using a single 4-digit code. Free, fast, no signup.',
+        url: absoluteUrl('/file-upload'),
+        title: `${TITLE} | ${BRAND_NAME}`,
+        description: DESCRIPTION,
     },
 };
 

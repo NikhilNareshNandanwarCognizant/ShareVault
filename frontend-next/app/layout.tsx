@@ -5,6 +5,16 @@ import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/layout/Hero';
 import Footer from '@/components/layout/Footer';
 import PageContainer from '@/components/layout/PageContainer';
+import {
+    BRAND_NAME,
+    LOGO_URL,
+    OG_DESCRIPTION,
+    SITE_DESCRIPTION,
+    SITE_SHORT_TITLE,
+    SITE_TITLE,
+    SITE_URL,
+    TITLE_TEMPLATE,
+} from '@/lib/site';
 import './globals.css';
 
 const inter = Inter({
@@ -21,24 +31,15 @@ const jetbrainsMono = JetBrains_Mono({
     variable: '--font-jetbrains',
 });
 
-const SITE_URL = 'https://sharevault.vercel.app/';
-const LOGO_URL = 'https://sharevault.vercel.app/src/assets/logo.png';
-const TITLE = 'ShareVault - Share Text & Files Instantly with a Code | Free Online File Sharing';
-const SHORT_TITLE = 'ShareVault - Share Text & Files Instantly with a Code';
-const DESCRIPTION =
-    'ShareVault is a free, fast and secure online tool to share text snippets and files with a unique code. Send notes, documents, images and files instantly across devices - no signup required.';
-const OG_DESCRIPTION =
-    'Free, fast and secure online tool to share text and files with a unique code. Transfer notes, documents and files across devices instantly - no signup required.';
-
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title: {
-        default: TITLE,
-        template: '%s | ShareVault',
+        default: SITE_TITLE,
+        template: TITLE_TEMPLATE,
     },
-    description: DESCRIPTION,
-    applicationName: 'ShareVault',
-    authors: [{ name: 'ShareVault' }],
+    description: SITE_DESCRIPTION,
+    applicationName: BRAND_NAME,
+    authors: [{ name: BRAND_NAME }],
     keywords: [
         'ShareVault',
         'share text online',
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
     } as Metadata['robots'],
     referrer: 'strict-origin-when-cross-origin',
     formatDetection: { telephone: false },
-    alternates: { canonical: SITE_URL },
+    alternates: { canonical: `${SITE_URL}/` },
     manifest: '/site.webmanifest',
     icons: {
         icon: '/src/assets/logo.png',
@@ -79,9 +80,9 @@ export const metadata: Metadata = {
     },
     openGraph: {
         type: 'website',
-        siteName: 'ShareVault',
-        url: SITE_URL,
-        title: SHORT_TITLE,
+        siteName: BRAND_NAME,
+        url: `${SITE_URL}/`,
+        title: SITE_SHORT_TITLE,
         description: OG_DESCRIPTION,
         locale: 'en_US',
         images: [
@@ -95,7 +96,7 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: SHORT_TITLE,
+        title: SITE_SHORT_TITLE,
         description: OG_DESCRIPTION,
         images: [
             {
@@ -106,7 +107,7 @@ export const metadata: Metadata = {
     },
     appleWebApp: {
         capable: true,
-        title: 'ShareVault',
+        title: BRAND_NAME,
         statusBarStyle: 'default',
     },
     other: {
@@ -116,7 +117,7 @@ export const metadata: Metadata = {
         'revisit-after': '7 days',
         rating: 'general',
         distribution: 'global',
-        'twitter:url': SITE_URL,
+        'twitter:url': `${SITE_URL}/`,
     },
 };
 
@@ -129,9 +130,9 @@ export const viewport: Viewport = {
 const webApplicationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'ShareVault',
-    url: SITE_URL,
-    description: DESCRIPTION,
+    name: BRAND_NAME,
+    url: `${SITE_URL}/`,
+    description: SITE_DESCRIPTION,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'All',
     browserRequirements: 'Requires JavaScript. Requires HTML5.',
@@ -155,8 +156,8 @@ const webApplicationJsonLd = {
 const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'ShareVault',
-    url: SITE_URL,
+    name: BRAND_NAME,
+    url: `${SITE_URL}/`,
     logo: LOGO_URL,
     description:
         'ShareVault provides a free, secure way to share text and files online using a unique sharing code.',
@@ -165,11 +166,11 @@ const organizationJsonLd = {
 const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'ShareVault',
-    url: SITE_URL,
+    name: BRAND_NAME,
+    url: `${SITE_URL}/`,
     potentialAction: {
         '@type': 'SearchAction',
-        target: `${SITE_URL}?code={search_term_string}`,
+        target: `${SITE_URL}/?code={search_term_string}`,
         'query-input': 'required name=search_term_string',
     },
 };
